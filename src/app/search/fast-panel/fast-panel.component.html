@@ -1,0 +1,54 @@
+<div *ngIf="!pending">
+  <h3 *ngIf="userId">
+    Вопросы пользователя {{ searchResults[0].owner.display_name }}: 
+  </h3>
+  <h3 *ngIf="tag">
+      Вопросы по тегу: 
+    <button
+      class="badge badge-secondary"
+      type="button"
+    >
+      {{ tag }}
+    </button> 
+    </h3>
+  
+  <div  *ngIf="searchResults && searchResults.length > 0" 
+    class="list-group">
+    <div class="row mt-2 mb-2">
+      <div class="col col-4">Имя</div>
+      <div class="col col-4">Вопрос</div>
+      <div class="col-2">Количество ответов</div>
+      <div class="col col-2">Теги</div>
+    </div>
+    <div
+      *ngFor="let searchResult of searchResults"
+      class="row mt-2 mb-2">
+      <div 
+        class="col col-4" 
+        [innerHTML]="searchResult.owner.display_name"
+      ></div>
+      <div class="col col-5">
+        <strong [innerHTML]="searchResult.title"></strong>
+      </div>
+      <div class="col">{{ searchResult.answer_count }}</div>
+      <div class="col col-2">
+        <button
+          *ngFor="let tag of searchResult.tags" 
+          class="badge badge-secondary"
+          type="button"
+        >
+          {{ tag }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div 
+  class="d-flex justify-content-center text-primary"
+  *ngIf="pending"
+>
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

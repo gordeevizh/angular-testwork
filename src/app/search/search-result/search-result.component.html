@@ -1,0 +1,55 @@
+<button class="btn btn-secondary mt-4" (click)="goBack()">< Назад</button>
+
+<div class="search-result row mt-4">
+  <div class="col col-6">
+    <h3>
+      Результаты поиска по запросу "{{searchQuery}}": 
+    </h3>
+    
+    <div class="list-group">
+      <div class="row mt-2 mb-2">
+        <div class="col col-4">Имя</div>
+        <div class="col col-4">Вопрос</div>
+        <div class="col-2">Количество ответов</div>
+        <div class="col col-2">Теги</div>
+      </div>
+      <div
+        *ngFor="let searchResult of searchResults"
+        class="row mt-2 mb-2">
+        <div 
+          class="search-resul__user-name col col-4"
+          [class.bg-light]="searchResult.owner.user_id === selectedUser"
+          [innerHTML]="searchResult.owner.display_name"
+          (click)="onSelectUser(searchResult.owner.user_id)"
+        >
+        </div>
+        <div class="search-resul__question-title col col-5">
+          <a routerLink="/information/{{searchResult.question_id}}">
+            <strong [innerHTML]="searchResult.title"></strong>
+          </a>
+        </div>
+        <div class="col">
+          <a routerLink="/information/{{searchResult.question_id}}">{{ searchResult.answer_count }}</a>
+        </div>
+        <div class="col col-2">
+          <button
+            *ngFor="let tag of searchResult.tags" 
+            class="badge badge-secondary"
+            [class.bg-primary]="tag === selectedTag"
+            type="button"
+            (click)="onSelectTag(tag)"
+          >
+            {{ tag }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col col-6">
+    <app-fast-panel 
+      [userId]="selectedUser"
+      [tag]="selectedTag"
+    ></app-fast-panel>
+  </div>
+</div>

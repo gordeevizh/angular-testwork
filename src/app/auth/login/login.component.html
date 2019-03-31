@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>Авторизация</h2>
+  <p>{{message}}</p>
+  <p>
+    <button class="btn btn-primary" (click)="login()"  *ngIf="!authService.isLoggedIn">Войти</button>
+    <button class="btn btn-secondary" (click)="logout()" *ngIf="authService.isLoggedIn">Выйти</button>
+  </p>
+</div>

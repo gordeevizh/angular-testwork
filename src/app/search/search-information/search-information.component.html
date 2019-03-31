@@ -1,0 +1,38 @@
+<button class="btn btn-secondary mt-4" (click)="goBack()">< Назад</button>
+
+<div *ngIf="!pending" class="answers">
+  <div class="constainer mt-4">
+    <h3 [innerHTML]="title"></h3>
+    <h4 *ngIf="answers && answers.length > 0">Ответы: </h4>
+    <h4 *ngIf="!answers || answers.length === 0"> Ответов по данному запросу нет </h4>
+  <div 
+    *ngFor="let answer of answers"
+    class="row mb-4 mt-4"
+  >
+    <div class="col-1">
+        <svg *ngIf="answer.is_accepted" aria-hidden="true" class="svg-icon iconCheckmarkLg text-success" width="36" height="36" viewBox="0 0 36 36">
+          <path fill="currentColor" d="M6 14l8 8L30 6v8L14 30l-8-8z"></path>
+        </svg>
+    </div>
+    <div class="col">
+      <div class="media">
+        <img src="{{answer.owner.profile_image}}" class="mr-3" alt="avatar" width="48" height="48">
+        <div class="media-body">
+          <a href="{{answer.owner.link}}" target="_blank" rel="nofollow noopener">{{answer.owner.display_name}}</a>
+        </div>
+      </div>
+      <div>
+        <a href="https://stackoverflow.com/a/{{answer.question_id}}" target="_blank" rel="nofollow noopener">Ссылка на ответ на stackOverflow</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div 
+  class="d-flex justify-content-center text-primary"
+  *ngIf="pending"
+>
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

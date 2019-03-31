@@ -1,0 +1,4 @@
+.search-resul__user-name,
+.search-resul__question-title {
+  cursor: pointer;
+}

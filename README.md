@@ -1,27 +1,18 @@
 # MyApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+Тестовое задание
 
-## Development server
+## Установка
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Открыть папку с проектом и запустить `npm install`
 
-## Code scaffolding
+## Разработка
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Запустить `ng serve` для отображения клиентской части на `http://localhost:4200/`.
+Дополнительно запустите `npm run server` для запуска сервера для запросов к API. Сервер доступен на `hhtp://localhost:3000`
 
-## Build
+## Запуск готовой сборки
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Запустить `ng build` для сборки клиентской части приложения в каталог `/server/dist`
+Запустить сервер `npm run server`. Приложение запустится на `hhtp://localhost:3000`
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

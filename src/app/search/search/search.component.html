@@ -1,0 +1,23 @@
+<div class="container">
+  <h3>ПОИСК</h3>
+  <div class="input-group mb-3">
+    <input 
+      #searchQuery
+      type="text"
+      class="form-control"
+      aria-describedby="button-search"
+      (keyup.enter)="moveToResultsPage(searchQuery.value)"
+    >
+    <div class="input-group-append">
+      <button 
+        class="btn btn-primary"
+        type="button"
+        id="button-search"
+        (click)="moveToResultsPage(searchQuery.value)"
+      >
+        Искать
+      </button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
